@@ -1,18 +1,18 @@
 from datetime import datetime
 
 
-def filter_by_state(list_: list[dict], state_='EXECUTED') -> list[dict]:
+def filter_by_state(input_list: list[dict], state_: str='EXECUTED') -> list[dict]:
     """ возвращает новый список словарей по ключу state соответствующему указанному значению."""
-    new_list = []
-    for i in list_:
+    sort_list_state = []
+    for i in input_list:
         if i['state'] == state_:
-            new_list.append(i)
-    return new_list
+            sort_list_state.append(i)
+    return sort_list_state
 
 
-def sort_by_date(list_: list[dict], reverse_='True') -> list[dict]:
+def sort_by_date(input_list: list[dict], reverse_: bool=True) -> list[dict]:
     """ возвращает новый список, отсортированный по дате"""
-    new_list = sorted(
-        list_,
+    sort_list_data = sorted(
+        input_list,
         key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=reverse_)
-    return new_list
+    return sort_list_data
