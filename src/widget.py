@@ -4,7 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(number_card_or_account: str) -> str:
-    """ Возвращать строку с замаскированным номером."""
+    """Возвращать строку с замаскированным номером."""
     number_split = number_card_or_account.split()
 
     if "Счет" in number_split:
