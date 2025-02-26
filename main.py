@@ -9,7 +9,7 @@ if __name__ == "__main__":
     print(test2)
     print(test3)
 
-    test4 = get_date("2024-03-11T02:26:18.671407")
+    test4 = get_date("")
     print(test4)
 
     test5 = filter_by_state([{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
