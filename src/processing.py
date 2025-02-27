@@ -15,7 +15,11 @@ def filter_by_state(input_list: list[dict], state_: str = 'EXECUTED') -> list[di
 
 def sort_by_date(input_list: list[dict], reverse_: bool = True) -> list[dict]:
     """ возвращает новый список, отсортированный по дате"""
-    sort_list_data = sorted(
-        input_list,
-        key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=reverse_)
-    return sort_list_data
+    try:
+        sort_list_data = sorted(
+            input_list,
+            key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=reverse_)
+    except ValueError:
+        return 'Неверный формат даты'
+    else:
+        return sort_list_data
