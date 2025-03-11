@@ -11,8 +11,6 @@ def filter_by_state(input_list: list[dict], state_: str = 'EXECUTED') -> list[di
     return sort_list_state
 
 
-
-
 def sort_by_date(input_list: list[dict], reverse_: bool = True) -> list[dict]:
     """ возвращает новый список, отсортированный по дате"""
     try:
