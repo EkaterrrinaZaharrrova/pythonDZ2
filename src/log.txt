@@ -1,3 +1,7 @@
 
 sum_ error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (3, '4'), {}
 sum_ OK
+sum_ OK
+sum_ OK
+sum_ OK
+sum_ OK

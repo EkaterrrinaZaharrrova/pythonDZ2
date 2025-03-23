@@ -1,6 +1,7 @@
 
 
 def log(filename=None):
+    """Декоратор принимающий на вход необязательный аргумент filename"""
     def my_decorator(func):
         def inner(*args, **kwargs):
             message = ''
@@ -11,19 +12,20 @@ def log(filename=None):
                 result = None
                 message = f'{func.__name__} error: {error}. Inputs: {args}, {kwargs}\n'
             finally:
-                if filename:
-                    with open(filename, "a", encoding='utf-8') as file:
-                        file.write(message)
-                else:
+                if filename is None:
                     print(message)
+                else:
+                    with open(filename, "a") as file:
+                        file.write(message)
 
             return result
         return inner
     return my_decorator
 
 
-@log("log.txt")
+@log()
 def sum_(a, b):
-    print(a + b)
+    return a + b
 
-sum_(3, 4)
+
+print(sum_(3, 4))
