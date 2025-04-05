@@ -6,11 +6,12 @@ from config import ROOT_DIR
 from src.external_api import get_convert_currency
 
 logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler(f'{ROOT_DIR}/logs/{__name__}.log', mode='w')
-file_formatter = logging.Formatter('%(asctime)s %(module)s %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(f"{ROOT_DIR}/logs/{__name__}.log", mode="w")
+file_formatter = logging.Formatter("%(asctime)s %(module)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
+
 
 def read_json_file(filename: str = "") -> list:
     """Функция чтения JSON-файла"""
