@@ -27,6 +27,6 @@ def test_decorators_error(capsys) -> None:
     def sum_(x, y):
         return x + y
 
-    sum_(6, '2')
+    sum_(6, "2")
     read_out = capsys.readouterr()
     assert read_out.out == "sum_ error: unsupported operand type(s) for +: 'int' and 'str'. Inputs: (6, '2'), {}\n\n"

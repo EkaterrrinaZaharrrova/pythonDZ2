@@ -32,4 +32,3 @@ def transactions(operations: list[dict]) -> Any:
 
     except Exception as er:
         logging.error(f" Ошибка {er}")
-

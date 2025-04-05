@@ -24,7 +24,7 @@ def card_number_generator(start: int, stop: int) -> str:
     """выдает номера банковских карт в формате XXXX XXXX XXXX XXXX"""
     while True:
         num = str(start).zfill(16)
-        result = num[0:4] + ' ' + num[4:8] + ' ' + num[8:12] + ' ' + num[12:]
+        result = num[0:4] + " " + num[4:8] + " " + num[8:12] + " " + num[12:]
         yield result
         if start == stop:
             break
