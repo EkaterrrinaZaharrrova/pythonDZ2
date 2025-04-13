@@ -1,16 +1,15 @@
-
-
 def log(filename=None):
     """Декоратор принимающий на вход необязательный аргумент filename"""
+
     def my_decorator(func):
         def inner(*args, **kwargs):
-            message = ''
+            message = ""
             try:
                 result = func(*args, **kwargs)
-                message = f'{func.__name__} OK\n'
+                message = f"{func.__name__} OK\n"
             except Exception as error:
                 result = None
-                message = f'{func.__name__} error: {error}. Inputs: {args}, {kwargs}\n'
+                message = f"{func.__name__} error: {error}. Inputs: {args}, {kwargs}\n"
             finally:
                 if filename is None:
                     print(message)
@@ -19,7 +18,9 @@ def log(filename=None):
                         file.write(message)
 
             return result
+
         return inner
+
     return my_decorator
 
 
