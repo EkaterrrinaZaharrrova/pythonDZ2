@@ -4,7 +4,7 @@ from collections import Counter
 
 def filter_by_word(transaction: list[dict], word: str) -> list[dict]:
     """Функция поиска по регулярному выражению в описании транзакции"""
-    filter_data = [data for data in transaction if re.search(word.lower(), data.get("description", "").lower())]
+    filter_data = [data for data in list(transaction) if re.search(word, data.get("description", ""), re.I)]
     return filter_data
 
 

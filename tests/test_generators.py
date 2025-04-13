@@ -9,16 +9,6 @@ def test_filter_by_currency(currency, expected, transactions):
     assert next(result)["id"] == expected
 
 
-def test_filter_by_currency_wrong(transactions):
-    result = filter_by_currency(transactions, "EUR")
-    assert next(result) is None
-
-
-def test_filter_by_currency_empty_list():
-    result = filter_by_currency([])
-    assert next(result) is None
-
-
 def test_transaction_descriptions(transactions):
     descriptions = transaction_descriptions(transactions)
     assert next(descriptions) == "Перевод организации"

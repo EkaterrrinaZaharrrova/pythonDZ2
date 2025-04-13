@@ -59,30 +59,18 @@ def main():
 
     sort_order = input().upper()
     if "ДА" in sort_order:
-        sort_order = False
-    else:
-        sort_order = True
-    final_data = sort_by_date(final_data, sort_order)
-
-    print("Отсортировать по возрастанию или по убыванию? (Да / Нет)")
-    sort_rev = input().lower()
-    if sort_rev == "да":
-        sort_rev = False
-    else:
-        sort_rev = True
-    try:
-        final_data = sorted(final_data, reverse=sort_rev, key=lambda x: x["amount"])
-        final_data = sorted(final_data, reverse=sort_rev, key=lambda x: x["operationAmount"]["currency"]["code"])
-    except KeyError as error:
-        print(f"{error}")
+        print("Отсортировать по возрастанию или по убыванию? (Да / Нет)")
+        sort_rev = input().lower() != 'да'
+        final_data = sort_by_date(final_data, sort_rev)
 
     print("Выводить только рублевые транзакции? Да/Нет")
+
     choice_currency = input().upper()
     if "ДА" in choice_currency:
         currency = "RUB"
     else:
         currency = ""
-    final_data = filter_by_currency(final_data, currency)
+    final_data = list(filter_by_currency(final_data, currency))
 
     print("Отфильтровать список транзакций по определенному слову в описании?")
     word_to_search = input("Что будем искать?\n").lower()
