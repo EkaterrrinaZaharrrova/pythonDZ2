@@ -6,9 +6,8 @@ from src.processing import filter_by_state, sort_by_date
 from src.reading_files import read_finance_csv_operation, read_finance_excel_operation
 from src.utils import read_json_file
 from src.widget import get_date, mask_account_card
-from src.search_operations
-
-ROOT_DIR = os.path.dirname(__file__)
+from src.search_operations import filter_by_word
+from config import ROOT_DIR
 
 
 def main():
