@@ -22,7 +22,7 @@ def mask_account_card(number_card_or_account: str) -> str:
                     mask_card = get_mask_card_number(i)
             return f"{" ".join(name_card)} {mask_card}"
         else:
-            return 'Неверный ввод данных'
+            return "Неверный ввод данных"
 
 
 def get_date(date: str) -> str:
@@ -30,6 +30,6 @@ def get_date(date: str) -> str:
     try:
         date_time = datetime.fromisoformat(date)
     except ValueError:
-        return 'Неверный ввод даты'
+        return "Неверный ввод даты"
     else:
         return date_time.strftime("%d.%m.%Y")
